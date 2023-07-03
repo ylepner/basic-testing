@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 export enum Action {
   Add = '+',
   Subtract = '-',
@@ -6,7 +7,7 @@ export enum Action {
   Exponentiate = '^',
 }
 
-type RawCalculatorInput = {
+export type RawCalculatorInput = {
   a: unknown;
   b: unknown;
   action: unknown;
