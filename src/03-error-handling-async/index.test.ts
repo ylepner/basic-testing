@@ -2,8 +2,8 @@ import {
   throwError,
   throwCustomError,
   resolveValue,
-  MyAwesomeError,
   rejectCustomError,
+  MyAwesomeError,
 } from './index';
 
 describe('resolveValue', () => {
@@ -36,17 +36,11 @@ describe('throwCustomError', () => {
       throwCustomError();
     };
     expect(result).toThrowError('This is my awesome custom error!');
-    ('Oops!');
   });
 });
 
 describe('rejectCustomError', () => {
   test('should reject custom error', async () => {
-    try {
-      await rejectCustomError();
-    } catch (error: any) {
-      expect(error).toBeInstanceOf(MyAwesomeError);
-      expect(error.message).toBe('This is my awesome custom error!');
-    }
+    await expect(rejectCustomError).rejects.toEqual(new MyAwesomeError());
   });
 });
